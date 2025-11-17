@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petualangan di Kampung Nusantara - Media Pembelajaran IPS SD</title>
+    <style>
+        :root {
+            --primary: #4CAF50;
+            --secondary: #FF9800;
+            --accent: #2196F3;
+            --light: #f9f9f9;
+            --dark: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Comic Sans MS', 'Segoe UI', Tahoma, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f8ff;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .logo {
+            width: 70px;
+            height: 70px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background-color: var(--secondary);
+            padding: 0.8rem;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0 10px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .hero {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        
+        .hero h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 0 #e68900;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 0 #e68900;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 2rem;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+        }
+        
+        .activities {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .activities h2 {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .activity-card {
+            border: 2px solid var(--accent);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .activity-card:hover {
+            background-color: #e3f2fd;
+            transform: scale(1.03);
+        }
+        
+        .activity-icon {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .characters {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        
+        .character {
+            text-align: center;
+            max-width: 150px;
+        }
+        
+        .character-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: var(--light);
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary);
+            border: 3px solid var(--secondary);
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 5px 0;
+            }
+            
+            .hero {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">🌏</div>
+            <div>
+                <h1>Petualangan di Kampung Nusantara</h1>
+                <p class="subtitle">Media Pembelajaran Digital IPS Tematik untuk Kelas Rendah SD</p>
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#tentang">Tentang Media</a></li>
+            <li><a href="#aktivitas">Aktivitas Belajar</a></li>
+            <li><a href="#evaluasi">Evaluasi</a></li>
+            <li><a href="#panduan">Panduan Guru</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section id="beranda" class="hero">
+            <h2>Selamat Datang di Petualangan Menarik!</h2>
+            <p>Bergabunglah dengan <strong>Asti dan Budi</strong> dalam petualangan seru mengenal keragaman budaya dan pekerjaan di Indonesia. Media pembelajaran ini dirancang khusus untuk siswa kelas rendah SD dengan pendekatan tematik yang menyenangkan!</p>
+            <a href="#aktivitas" class="cta-button">Mulai Petualangan</a>
+        </section>
+        
+        <section class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Pendekatan Tematik</h3>
+                <p>Mengintegrasikan IPS dengan Bahasa Indonesia, SBdP, dan mata pelajaran lain sesuai kurikulum tematik SD.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🧩</div>
+                <h3>Interaktif & Menyenangkan</h3>
+                <p>Dirancang dengan aktivitas interaktif, animasi, dan permainan edukatif yang disukai anak-anak.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Akses Mudah</h3>
+                <p>Dapat diakses melalui komputer, tablet, atau smartphone dengan antarmuka yang ramah pengguna.</p>
+            </div>
+        </section>
+        
+        <section id="tentang" class="activities">
+            <h2>Tokoh Petualangan Kita</h2>
+            <div class="characters">
+                <div class="character">
+                    <div class="character-img">👧</div>
+                    <h3>Asti</h3>
+                    <p>Pemandu petualangan yang cerdas dan suka belajar hal baru.</p>
+                </div>
+                <div class="character">
+                    <div class="character-img">👦</div>
+                    <h3>Budi</h3>
+                    <p>Saudara Asti yang petualang dan selalu penasaran dengan lingkungan sekitar.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="aktivitas" class="activities">
+            <h2>Aktivitas Belajar Menarik</h2>
+            <div class="activity-grid">
+                <div class="activity-card">
+                    <div class="activity-icon">🏝️</div>
+                    <h3>Pulau Pekerjaan</h3>
+                    <p>Kenali berbagai jenis pekerjaan dan manfaatnya dalam masyarakat.</p>
+                </div>
+                
+                <div class="activity-card">
+                    <div class="activity-icon">🏠</div>
+                    <h3>Rumah Adat Jawa</h3>
+                    <p>Jelajahi keunikan Rumah Joglo dan nilai kebersamaan di dalamnya.</p>
+                </div>
+                
+                <div class="activity-card">
+                    <div class="activity-icon">🛕</div>
+                    <h3>Rumah Adat Bali</h3>
+                    <p>Temukan keindahan arsitektur dan keragaman budaya Bali.</p>
+                </div>
+                
+                <div class="activity-card">
+                    <div class="activity-icon">🎮</div>
+                    <h3>Kuis Interaktif</h3>
+                    <p>Uji pemahamanmu dengan kuis seru dan menarik.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="evaluasi" class="activities">
+            <h2>Evaluasi Pembelajaran</h2>
+            <p>Media ini dilengkapi dengan berbagai bentuk evaluasi untuk mengukur pemahaman siswa:</p>
+            <ul style="margin: 15px 0 15px 20px;">
+                <li>Kuis interaktif dengan sistem penilaian otomatis</li>
+                <li>Aktivitas drag and drop untuk melatih motorik halus</li>
+                <li>Tantangan pemecahan masalah sehari-hari</li>
+                <li>Proyek kolaborasi untuk dinilai guru</li>
+            </ul>
+        </section>
+        
+        <section id="panduan" class="activities">
+            <h2>Panduan untuk Guru</h2>
+            <p>Media "Petualangan di Kampung Nusantara" dirancang sesuai dengan kriteria pemilihan media pembelajaran:</p>
+            
+            <div class="features" style="margin-top: 20px;">
+                <div class="feature-card">
+                    <h3>Kesesuaian dengan Tujuan Pembelajaran</h3>
+                    <p>Media ini membantu mencapai tujuan pembelajaran IPS kelas rendah tentang keragaman sosial dan budaya.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Karakteristik Siswa</h3>
+                    <p>Dirancang dengan visual menarik, interaksi sederhana, dan konten yang sesuai dengan perkembangan kognitif siswa kelas rendah.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Keinteraktifan</h3>
+                    <p>Siswa terlibat aktif dalam proses belajar melalui eksplorasi, permainan, dan pemecahan masalah.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 Petualangan di Kampung Nusantara - Media Pembelajaran Digital IPS SD</p>
+        <p>Dikembangkan berdasarkan kurikulum tematik untuk kelas rendah Sekolah Dasar</p>
+    </footer>
+
+    <script>
+        // Animasi sederhana untuk kartu aktivitas
+        document.querySelectorAll('.activity-card').forEach(card => {
+            card.addEventListener('click', function() {
+                alert('Fitur ini akan mengarahkan ke aktivitas pembelajaran yang interaktif!');
+            });
+        });
+        
+        // Smooth scroll untuk navigasi
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 20,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
